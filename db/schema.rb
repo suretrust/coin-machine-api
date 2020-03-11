@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_092908) do
+ActiveRecord::Schema.define(version: 2020_03_11_093706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 2020_03_11_092908) do
     t.string "email", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "coin_id", null: false
     t.index ["access_token"], name: "index_api_users_on_access_token", unique: true
+    t.index ["coin_id"], name: "index_api_users_on_coin_id"
     t.index ["email"], name: "index_api_users_on_email", unique: true
   end
 
@@ -32,4 +34,5 @@ ActiveRecord::Schema.define(version: 2020_03_11_092908) do
     t.index ["name"], name: "index_coins_on_name", unique: true
   end
 
+  add_foreign_key "api_users", "coins"
 end
