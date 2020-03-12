@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApiUser < ApplicationRecord
-  validates :access_token, :email, presence: true, uniqueness: true
-  has_many :coins
+  before_save { email.downcase! }
+
+  validates :email, presence: true, uniqueness: true
+  has_many :coins, dependent: :destroy
 end
