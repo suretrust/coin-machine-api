@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :transaction do
-    type { "" }
-    coin { nil }
-    api_user { nil }
+    transaction_type { 'deposit' }
+    coin
+    api_user
   end
 end

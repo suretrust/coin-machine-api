@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :coin do
     value { 1 }
     name { 'MyString' }
-    association :api_user
+    api_user
   end
 end
