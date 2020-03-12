@@ -3,9 +3,9 @@
 class Api::V1::CoinsController < ApplicationController
   before_action :authenticate
   before_action :set_coin, except: %i[create index]
+  before_action :set_api_user, only: :create
 
   def create
-    @api_user = ApiUser.find_by(access_token: token)
     @coin = @api_user.coins.build coin_params
 
     if @coin.save
@@ -41,10 +41,6 @@ class Api::V1::CoinsController < ApplicationController
 
   def coin_params
     params.require(:coin).permit(:name)
-  end
-
-  def token
-    request.headers.env['HTTP_AUTHORIZATION'].split[1]
   end
 
   def set_coin

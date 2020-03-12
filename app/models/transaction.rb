@@ -10,12 +10,12 @@ class Transaction < ApplicationRecord
   end
 
   def withdrawal?
-    transaction_type == 'withdrawal'
+    transaction_type == 'withdraw'
   end
 
   def type_can_only_be_deposit_or_withdraw
     unless deposit? || withdrawal?
-      errors.add(:transaction_type, 'value can only be deposit or withrawal')
+      errors.add(:transaction_type, 'can only be deposit or withdrawal')
     end
   end
 

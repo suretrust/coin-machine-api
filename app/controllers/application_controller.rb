@@ -14,4 +14,12 @@ class ApplicationController < ActionController::API
       ActiveSupport::SecurityUtils.secure_compare(token, db_token)
     end
   end
+
+  def token
+    request.headers.env['HTTP_AUTHORIZATION'].split[1]
+  end
+
+  def set_api_user
+    @api_user = ApiUser.find_by(access_token: token)
+  end
 end
