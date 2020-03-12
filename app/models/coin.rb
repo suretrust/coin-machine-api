@@ -6,4 +6,5 @@ class Coin < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   belongs_to :api_user
+  has_many :transactions, dependent: :destroy
 end

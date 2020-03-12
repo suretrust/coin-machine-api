@@ -10,5 +10,6 @@ RSpec.describe ApiUser, type: :model do
 
   describe 'associations' do
     it { is_expected.to have_many(:coins) }
+    it { is_expected.to have_many(:transactions) }
   end
 end
