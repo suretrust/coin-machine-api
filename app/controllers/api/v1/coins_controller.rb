@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::CoinsController < ApplicationController
-  before_action :authenticate, except: [:index]
+  before_action :authenticate
   before_action :set_coin, except: %i[create index]
 
   def create
