@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :api_users, only: :create
       resources :coins
       resources :transactions, only: %i[index create]
+      resources :api_user_transactions, only: %i[index]
     end
   end
 end
