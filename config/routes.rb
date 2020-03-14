@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :coins
       resources :transactions, only: %i[index create]
       resources :api_user_transactions, only: %i[index]
+      resources :admins, only: %i[create index]
     end
   end
 end

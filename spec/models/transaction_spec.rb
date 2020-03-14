@@ -10,8 +10,8 @@ RSpec.describe Transaction, type: :model do
     it 'returns true if transaction type is deposit' do
       expect(transaction.valid?).to be(true)
     end
-    it 'returns true if transaction type is withdrawal' do
-      transaction.transaction_type = 'withdrawal'
+    it 'returns true if transaction type is withdraw' do
+      transaction.transaction_type = 'withdraw'
       expect(transaction.valid?).to be(true)
     end
     it 'returns false if transaction type is not deposit/withdrawal' do
