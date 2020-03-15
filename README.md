@@ -1,6 +1,12 @@
-# Welcome to Coin Machine API
+<h1 align="center">Welcome to Coin Machine API 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://twitter.com/suretrustng" target="_blank">
+    <img alt="Twitter: suretrustng" src="https://img.shields.io/twitter/follow/suretrustng.svg?style=social" />
+  </a>
+</p>
 
-This is a RESTful Rails API that acts as a Coin Machine, it allows coin deposits and withdrawals.
+    This is a RESTful Rails API that acts as a Coin Machine, it allows coin deposits and withdrawals.
 
 ## Usage
 
@@ -95,13 +101,27 @@ GET /api/v1/api_user_transactions?api_key=YOUR_ACCESS_TOKEN&email=USER_EMAIL
 
 ## Alerting
 
-Step 4: Alerting!
-Since we don't want our Coin Machines to run low very often we will need to fill them up; in order to do this we will need to know when they are running low. Please set up a system for alerting all Admins when the count of certain coin is low (> 4 in the system after a Transaction). Please keep the following in mind when sending alerts:
+Since we don't want our Coin Machines to run low very often we will need to fill them up; in order to do this we will need to know when they are running low. The system alerts all Admins when the count of certain coin is low (< 4 in the system after a Transaction).
 
-Please send a single consistent email to all Admin emails, create an Admin resource to track this (single email means one email with all Admins on it, not an individual email to each Admin)
-The email should contain the kind of Coin, the count, and the current value of all Coins in the system
-Bonus Points if you send the email asynchronously
+The email contains:
+- the kind of Coin.
+- the coin value.
+- and the current value of all Coins in the system.
 
-The URL of the deployed site
-The URL of the GitHub Repo
-Any additional notes you'd like to include
+The email is sent asynchronously.
+
+## Run tests
+
+```sh
+rspec
+```
+
+## Author
+
+👤 **Saheed Oladele**
+
+- Website: [Saheed Oladele](https://saheedoladele.com)
+- Twitter: [@suretrustng](https://twitter.com/suretrustng)
+- Github: [@suretrust](https://github.com/suretrust)
+- LinkedIn: [@saheed-oladele](https://linkedin.com/in/saheed-oladele)
+- E-mail: [(Email)](mailto:saholadele@gmail.com)
