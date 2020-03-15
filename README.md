@@ -13,7 +13,7 @@ Note: As this is hosted on a free version of heroku, it may be unreachable at so
 ### Default params (For the live version)
 
 - EMAIL: `foo@bar.com`
-- API_KEY: `804bce2c6c26747c6676c2a7a2826eb1`
+- API_KEY: `d496dc3e93c2b6fa3ef618261bb65d61`
 
 ## Usage
 

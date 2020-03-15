@@ -46,7 +46,7 @@ class Api::V1::TransactionsController < ApplicationController
 
   def send_low_coin_value_notification
     if @coin.value <= 4
-      CoinLowOnValueMailer.coin_low_notification(@coin.name, @coin.value).deliver_now
+      CoinLowOnValueMailer.coin_low_notification(@coin.name, @coin.value).deliver_later
     end
   end
 end
