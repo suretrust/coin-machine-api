@@ -26,10 +26,11 @@ Admin.delete_all
 p 'All admins deleted!'
 
 ApiUser.create!(email: 'foo@bar.com', access_token: SecureRandom.hex)
+Admin.create!(email: 'sdrfngg640@gmail.com')
+Admin.create!(email: 'saholadele@gmail.com')
 
 20.times do
   ApiUser.create!(email: Faker::Internet.email, access_token: SecureRandom.hex)
-  Admin.create(email: Faker::Internet.email)
 end
 
 p 'Admins and ApiUsers created!'
