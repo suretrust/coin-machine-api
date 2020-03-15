@@ -2,7 +2,7 @@
 
 class Api::V1::AdminsController < ApplicationController
   def index
-    @admins = Admin.all
+    @admins = Admin.pluck(:email)
     render json: @admins
   end
 

@@ -14,13 +14,13 @@ Live on heroku [here](http://coins-machine-api.herokuapp.com)
 
 ### API User
 
-- You can create a new API user by using your email. The access token is automatically generated and displayed.
+- You can create a new API user by using your email. The api_key is automatically generated and displayed.
 
 ```
 POST http://coins-machine-api.herokuapp.com/api/v1/api_users?api_user[email]=YOUR_EMAIL
 ```
 
-- The access token must be added as a parameter before you can make any request from this API. If you already have an account, to get your API_KEY:
+- The api_key must be added as a parameter before you can make any request from this API. If you already have an account, to get your API_KEY:
 
 ```
 GET http://coins-machine-api.herokuapp.com/api/v1/api_users?api_user[email]=YOUR_EMAIL
@@ -117,6 +117,20 @@ The email contains:
 - and the current value of all Coins in the system.
 
 The email is sent asynchronously.
+
+### Admins
+
+- To become an admin and receive low coin value notifications, you must create an administrator account.
+
+```
+POST http://coins-machine-api.herokuapp.com/api/v1/admins?admin[email]=ADMIN_EMAIL
+```
+
+- You can get the email of all admins.
+
+```
+GET http://coins-machine-api.herokuapp.com/api/v1/admins
+```
 
 ## Run tests
 
