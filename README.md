@@ -6,7 +6,7 @@
   </a>
 </p>
 
-    This is a RESTful Rails API that acts as a Coin Machine, it allows coin deposits and withdrawals. It acts exclusively with JSON format for the endpoints. This API does not require Users or typical authentication, with devise or otherwise, instead Api Keys are used to track all actions.
+This is a RESTful Rails API that acts as a Coin Machine, it allows coin deposits and withdrawals. It acts exclusively with JSON format for the endpoints. This API does not require Users or typical authentication, with devise or otherwise, instead Api Keys are used to track all actions.
 
 Note: As this is hosted on a free version of heroku, it may be unreachable at some point.
 
