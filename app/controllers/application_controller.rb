@@ -6,20 +6,15 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate
-    authenticate_or_request_with_http_token do |token, _options|
-      # Compare the tokens in a time-constant manner, to mitigate
-      # timing attacks.
-      db_token = ApiUser.find_by(access_token: token)
-      db_token = db_token ? db_token.access_token : ''
-      ActiveSupport::SecurityUtils.secure_compare(token, db_token)
-    end
+    api_key = ApiUser.find_by_access_token(params[:api_key])
+    render json: { error: 'Access denied' }, status: 401 unless api_key
   end
 
   def token
-    request.headers.env['HTTP_AUTHORIZATION'].split[1]
+    ApiUser.find_by_access_token(params[:api_key]).access_token
   end
 
   def set_api_user
-    @api_user = ApiUser.find_by(access_token: token)
+    @api_user = ApiUser.find_by_access_token(params[:api_key])
   end
 end

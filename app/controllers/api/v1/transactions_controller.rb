@@ -31,6 +31,7 @@ class Api::V1::TransactionsController < ApplicationController
 
   def withdraw
     if @coin.value > 0
+      # send email if @coin.value <= 4 we need coin name
       @coin.value -= 1
       @coin.save
       render json: @transaction
