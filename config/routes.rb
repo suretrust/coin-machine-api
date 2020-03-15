@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'coins_total_value', to: 'coins_total_value#index'
 
-      resources :api_users, only: :create
+      resource :api_users, only: %i[create show]
       resources :coins
       resources :transactions, only: %i[index create]
       resources :api_user_transactions, only: %i[index]

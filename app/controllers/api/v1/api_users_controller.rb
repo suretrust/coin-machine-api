@@ -13,6 +13,11 @@ class Api::V1::ApiUsersController < ApplicationController
     end
   end
 
+  def show
+    @api_user = ApiUser.find_by_email(params[:api_user][:email])
+    render json: { api_key: @api_user.access_token }
+  end
+
   private
 
   def token
