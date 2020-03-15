@@ -15,7 +15,8 @@ class Api::V1::TransactionsController < ApplicationController
     if @transaction.save
       @coin = Coin.find(params[:transaction][:coin_id])
       params[:transaction][:transaction_type] == 'deposit' ?
-                                          deposit : withdraw
+                                                  deposit : withdraw
+      send_low_coin_value_notification if @coin.value <= 4
     else
       render json: @transaction.errors
     end
@@ -31,7 +32,6 @@ class Api::V1::TransactionsController < ApplicationController
 
   def withdraw
     if @coin.value > 0
-      # send email if @coin.value <= 4 we need coin name
       @coin.value -= 1
       @coin.save
       render json: @transaction
@@ -42,5 +42,11 @@ class Api::V1::TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(:coin_id, :transaction_type)
+  end
+
+  def send_low_coin_value_notification
+    if @coin.value <= 4
+      CoinLowOnValueMailer.coin_low_notification(@coin.name, @coin.value).deliver_later
+    end
   end
 end

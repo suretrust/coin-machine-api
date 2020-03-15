@@ -6,6 +6,15 @@
     <title>Low Coin Value Notification</title>
   </head>
   <body>
-    <p>Coin is currently low.</p>
+    <p>Dear Admin,</p>
+    <p>A coin is currently low in value.</p>
+    <h4>Details</h4>
+    <ul>
+      <li>Value: <%= @value %></li>
+      <li>Name: <%= @name %></li>
+      <li>Total Value of all coins: <%= @total_value %></li>
+    </ul>
+    <p>Best regards,</p>
+    <p>The coin machine team.</p>
   </body>
 </html>
